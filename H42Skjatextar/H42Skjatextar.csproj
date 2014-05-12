@@ -164,6 +164,7 @@
     <Compile Include="Controllers\VideoTitlesController.cs" />
     <Compile Include="DAL\H42SkjatextarContext.cs" />
     <Compile Include="DAL\H42SkjatextarInitializer.cs" />
+    <Compile Include="DAL\IVideoTitleRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
