@@ -9,7 +9,7 @@ namespace H42Skjatextar.Models
     {
         public string titleOfMovie { get; set; }
         public string fileTitle { get; set; }
-        public int fileId { get; set; }
+        public int Id { get; set; }
         public int fileUserId { get; set; }
         public string language { get; set; }
 
