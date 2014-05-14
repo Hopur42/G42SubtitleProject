@@ -16,7 +16,21 @@ namespace H42Skjatextar.Controllers
     public class VideoTitlesController : Controller
     {
         private H42SkjatextarContext db = new H42SkjatextarContext();
+
+        private IVideoTitleRepository iRepo = null;
+
+        // This constructor is called when the web app is being used by users.
+        public VideoTitlesController()
+        {
+            // iRepo = new VideoTitleRepository();
+        }
         
+        // This constructor is called when we're testing the controller and we
+        // need to use a fake database.
+        public VideoTitlesController(IVideoTitleRepository rep)
+        {
+            iRepo = rep;
+        }
         
         // GET: VideoTitles
         public ActionResult Index()
