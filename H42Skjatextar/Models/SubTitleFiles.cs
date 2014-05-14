@@ -12,5 +12,8 @@ namespace H42Skjatextar.Models
         public int fileId { get; set; }
         public int fileUserId { get; set; }
         public string language { get; set; }
+
+        public virtual ICollection<VideoTitle> VideoTitles { get; set; }
+
     }
 }

@@ -8,19 +8,21 @@ using System.Web;
 using System.Web.Mvc;
 using H42Skjatextar.DAL;
 using H42Skjatextar.Models;
+using H42Skjatextar.ViewModel;
+using System.IO;
 
 namespace H42Skjatextar.Controllers
 {
     public class VideoTitlesController : Controller
     {
         private H42SkjatextarContext db = new H42SkjatextarContext();
-
+        
+        
         // GET: VideoTitles
         public ActionResult Index()
         {
             return View(db.VideoTitles.ToList());
         }
-
         // GET: VideoTitles/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,6 +36,13 @@ namespace H42Skjatextar.Controllers
                 return HttpNotFound();
             }
             return View(videoTitle);
+        }
+
+        [HttpPost]
+        public ActionResult UploadFile(SubTitleFilesViewModel file)
+        {
+            
+            return View();
         }
 
         // GET: VideoTitles/Create
