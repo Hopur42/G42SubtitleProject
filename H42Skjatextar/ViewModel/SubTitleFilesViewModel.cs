@@ -9,7 +9,9 @@ namespace H42Skjatextar.ViewModel
 {
     public class SubTitleFilesViewModel
     {
-        public HttpPostedFileBase SubTitleFiles { get; set; }
+        [FileSize(1000)]
+        [FileTypes("srt")]
+        public HttpPostedFileBase File { get; set; }
 
         [Required(ErrorMessage = "required")]
         public string titleOfMovie { get; set; }

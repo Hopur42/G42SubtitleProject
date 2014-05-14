@@ -177,6 +177,8 @@
     <Compile Include="DAL\VideoTitleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\FileSize.cs" />
+    <Compile Include="ViewModel\FileTypes.cs" />
     <Compile Include="ViewModel\key.cs" />
     <Compile Include="ViewModel\SubTitleFilesViewModel.cs" />
   </ItemGroup>
