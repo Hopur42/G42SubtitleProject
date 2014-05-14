@@ -10,8 +10,7 @@ namespace H42Skjatextar.Models
     {
         public string title { get; set; }
         public int ID { get; set; }
-        
-        // Stores information about each SubtitleFile belonging to a certain VideoTitle.
-        //public virtual ICollection<SubtitleFile> subtitleFiles { get; set; }
+        public string imdbLink { get; set; }
+        public string typeOfVideo { get; set; }
     }
 }
