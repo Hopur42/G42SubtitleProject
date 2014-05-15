@@ -7,11 +7,11 @@ namespace H42Skjatextar.Models
 {
     public class TitleRequest
     {
-        public int requestId;
-        public string name;
-        public int year;
-        public string director;
-        public string type;
-        public string genre;
+        public int Id { get; set; }
+        public string name { get; set; }
+        public int year { get; set; }
+        public string director { get; set; }
+        public string type { get; set; }
+        public string genre { get; set; }
     }
 }
