@@ -23,6 +23,9 @@ namespace H42Skjatextar.ViewModel
 
         public string genre { get; set; }
 
+        [Required(ErrorMessage = "required")]
+        public string language { get; set; }
+
         public virtual ICollection<TitleRequest> TiteRequest { get; set; }
     }
 }

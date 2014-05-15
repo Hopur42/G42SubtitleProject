@@ -13,5 +13,6 @@ namespace H42Skjatextar.Models
         public string director { get; set; }
         public string type { get; set; }
         public string genre { get; set; }
+        public string language { get; set; }
     }
 }
