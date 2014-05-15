@@ -185,6 +185,7 @@
     <Compile Include="ViewModel\FileTypes.cs" />
     <Compile Include="ViewModel\key.cs" />
     <Compile Include="ViewModel\SubTitleFilesViewModel.cs" />
+    <Compile Include="ViewModel\TitleRequestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

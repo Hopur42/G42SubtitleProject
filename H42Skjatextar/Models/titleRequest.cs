@@ -9,7 +9,7 @@ namespace H42Skjatextar.Models
     {
         public int Id { get; set; }
         public string name { get; set; }
-        public int year { get; set; }
+        public DateTime date { get; set; }
         public string director { get; set; }
         public string type { get; set; }
         public string genre { get; set; }

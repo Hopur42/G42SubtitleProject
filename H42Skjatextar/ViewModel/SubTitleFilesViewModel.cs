@@ -22,11 +22,20 @@ namespace H42Skjatextar.ViewModel
         [key]
         public int fileId { get; set; }
         
-        [key]
+       
         public int fileUserId { get; set; }
 
         [Required(ErrorMessage = "required")]
         public string language { get; set; }
+
+        public DateTime date { get; set; }
+
+        public string director { get; set; }
+
+        [Required(ErrorMessage = "required")]
+        public string type { get; set; }
+
+        public string genre { get; set; }
 
         public virtual ICollection<SubTitleFiles> SubTiteFile { get; set; }
 
