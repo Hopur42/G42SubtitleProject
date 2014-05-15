@@ -54,10 +54,26 @@ namespace H42Skjatextar.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadFile(SubTitleFilesViewModel file)
+        public ActionResult UploadFile(SubTitleFilesViewModel fileviewModel)
         {
-            
+            string path = "~/App_Data/";
+            if(ModelState.IsValid)
+            {
+                if(fileviewModel != null && fileviewModel.File != null)
+                {
+                    fileviewModel.saveAs(path + fileviewModel.File.FileName);
+                    return RedirectToAction("Index");
+                }
+            }
             return View();
+        }
+
+        public FileResult InsuranceReport()
+        {
+            string fileName = @"c:\Temp\insurance_report.srt";
+            string contentType = "application/srt";
+            
+            return new FilePathResult(fileName, contentType);
         }
 
         // GET: VideoTitles/Create
