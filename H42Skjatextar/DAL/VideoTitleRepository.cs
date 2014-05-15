@@ -7,24 +7,44 @@ using H42Skjatextar.Models;
 
 namespace H42Skjatextar.DAL
 {
-    public class VideoTitleRepository
+    public class VideoTitleRepository : IVideoTitleRepository
     {
-        H42SkjatextarContext db = new H42SkjatextarContext();
+        private H42SkjatextarContext db = new H42SkjatextarContext();
+
         public IEnumerable<VideoTitle> GetAllVideos()
         {
-            return db.VideoTitles;
+            return db.videoTitles;
         }
+
+        public VideoTitle FindVideoTitleById(int? id)
+        {
+            return db.videoTitles.Find(id);
+        }
+
         public VideoTitle GetVideoTitle(string videoTitle)
         {
-            var result = (from item in db.VideoTitles
+            var result = (from item in db.videoTitles
                          where item.title == videoTitle
                          select item).FirstOrDefault();
             return result;
         }
         public void AddVideoTitle(VideoTitle videoTitle)
         {
-            db.VideoTitles.Add(videoTitle);
+            db.videoTitles.Add(videoTitle);
             db.SaveChanges();
+        }
+        public void RemoveVideoTitle(VideoTitle videoTitle)
+        {
+            db.videoTitles.Remove(videoTitle);
+            db.SaveChanges();
+        }
+        public void Save()
+        {
+            db.SaveChanges();
+        }
+        public H42SkjatextarContext GetDbContext()
+        {
+            return db;
         }
     }
 }

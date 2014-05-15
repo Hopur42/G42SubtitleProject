@@ -17,26 +17,27 @@ namespace H42Skjatextar.Controllers
     {
         private H42SkjatextarContext db = new H42SkjatextarContext();
 
-        private IVideoTitleRepository iRepo = null;
+        private IVideoTitleRepository repo = null;
 
         // This constructor is called when the web app is being used by users.
         public VideoTitlesController()
         {
-            // iRepo = new VideoTitleRepository();
+            repo = new VideoTitleRepository();
         }
         
         // This constructor is called when we're testing the controller and we
         // need to use a fake database.
         public VideoTitlesController(IVideoTitleRepository rep)
         {
-            iRepo = rep;
+            repo = rep;
         }
         
         // GET: VideoTitles
         public ActionResult Index()
         {
-            return View(db.VideoTitles.ToList());
+            return View(repo.GetAllVideos().ToList());
         }
+
         // GET: VideoTitles/Details/5
         public ActionResult Details(int? id)
         {
@@ -44,7 +45,7 @@ namespace H42Skjatextar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VideoTitle videoTitle = db.VideoTitles.Find(id);
+            VideoTitle videoTitle = repo.FindVideoTitleById(id);
             if (videoTitle == null)
             {
                 return HttpNotFound();
@@ -74,8 +75,7 @@ namespace H42Skjatextar.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VideoTitles.Add(videoTitle);
-                db.SaveChanges();
+                repo.AddVideoTitle(videoTitle);
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +89,7 @@ namespace H42Skjatextar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VideoTitle videoTitle = db.VideoTitles.Find(id);
+            VideoTitle videoTitle = repo.FindVideoTitleById(id);
             if (videoTitle == null)
             {
                 return HttpNotFound();
@@ -106,8 +106,8 @@ namespace H42Skjatextar.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(videoTitle).State = EntityState.Modified;
-                db.SaveChanges();
+                repo.GetDbContext().Entry(videoTitle).State = EntityState.Modified;
+                repo.Save();
                 return RedirectToAction("Index");
             }
             return View(videoTitle);
@@ -120,7 +120,7 @@ namespace H42Skjatextar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VideoTitle videoTitle = db.VideoTitles.Find(id);
+            VideoTitle videoTitle = repo.FindVideoTitleById(id);
             if (videoTitle == null)
             {
                 return HttpNotFound();
@@ -133,9 +133,9 @@ namespace H42Skjatextar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            VideoTitle videoTitle = db.VideoTitles.Find(id);
-            db.VideoTitles.Remove(videoTitle);
-            db.SaveChanges();
+            VideoTitle videoTitle = repo.FindVideoTitleById(id);
+            repo.RemoveVideoTitle(videoTitle);
+            repo.Save();
             return RedirectToAction("Index");
         }
 
@@ -143,7 +143,7 @@ namespace H42Skjatextar.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                repo.GetDbContext().Dispose();
             }
             base.Dispose(disposing);
         }

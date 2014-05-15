@@ -10,9 +10,12 @@ namespace H42Skjatextar.DAL
     {
         IEnumerable<VideoTitle> GetAllVideos();
         VideoTitle GetVideoTitle(string videoTitle);
-        void AddVideoTitle(string videoTitle);
-        //void RemoveVideoTitle(string videoTitle);
+        void AddVideoTitle(VideoTitle videoTitle);
+        void RemoveVideoTitle(VideoTitle videoTitle);
         //void UpdateVideoTitle(string videoTitle);
-        //void Save();
+        void Save();
+
+        VideoTitle FindVideoTitleById(int? id);
+        public H42SkjatextarContext GetDbContext();
     }
 }

@@ -171,8 +171,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\SubTitleFiles.cs" />
-    <Compile Include="Models\titleRequest.cs" />
-    <Compile Include="Models\user.cs" />
+    <Compile Include="Models\TitleRequest.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\VideoTitle.cs" />
     <Compile Include="DAL\VideoTitleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

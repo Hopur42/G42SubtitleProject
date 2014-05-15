@@ -5,7 +5,7 @@ using System.Web;
 
 namespace H42Skjatextar.Models
 {
-    public class user
+    public class User
     {
         public int id;
         public string name;

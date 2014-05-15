@@ -5,7 +5,7 @@ using System.Web;
 
 namespace H42Skjatextar.Models
 {
-    public class titleRequest
+    public class TitleRequest
     {
         public int requestId;
         public string name;
