@@ -29,5 +29,10 @@ namespace H42Skjatextar.ViewModel
         public string language { get; set; }
 
         public virtual ICollection<SubTitleFiles> SubTiteFile { get; set; }
+
+        internal void saveAs(string path)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
