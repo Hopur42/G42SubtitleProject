@@ -62,7 +62,7 @@ namespace H42Skjatextar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,name,year,director,type,genre")] TitleRequest titleRequest)
+        public ActionResult Create([Bind(Include="Id,name,date,director,type,genre,language")] TitleRequest titleRequest)
         {
             if (ModelState.IsValid)
             {

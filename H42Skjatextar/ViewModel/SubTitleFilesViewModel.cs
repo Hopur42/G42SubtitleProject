@@ -28,6 +28,7 @@ namespace H42Skjatextar.ViewModel
         [Required(ErrorMessage = "required")]
         public string language { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime date { get; set; }
 
         public string director { get; set; }
