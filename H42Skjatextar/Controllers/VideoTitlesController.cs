@@ -15,7 +15,7 @@ namespace H42Skjatextar.Controllers
 {
     public class VideoTitlesController : Controller
     {
-        private H42SkjatextarContext db = new H42SkjatextarContext();
+        H42SkjatextarContext db = new H42SkjatextarContext();
 
         private IVideoTitleRepository repo = null;
 
@@ -123,6 +123,7 @@ namespace H42Skjatextar.Controllers
             if (ModelState.IsValid)
             {
                 repo.GetDbContext().Entry(videoTitle).State = EntityState.Modified;
+                //db.Entry(videoTitle).State = EntityState.Modified;
                 repo.Save();
                 return RedirectToAction("Index");
             }
@@ -155,13 +156,15 @@ namespace H42Skjatextar.Controllers
             return RedirectToAction("Index");
         }
 
+        /*
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                repo.GetDbContext().Dispose();
+                db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }*/
+        
     }
 }

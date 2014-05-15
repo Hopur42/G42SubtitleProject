@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using H42Skjatextar.Models;
+using System.Text.RegularExpressions;
 
 namespace H42Skjatextar.DAL
 {
-    public interface IVideoTitleRepository : IDisposable
+    public interface IVideoTitleRepository //: IDisposable
     {
         IEnumerable<VideoTitle> GetAllVideos();
         VideoTitle GetVideoTitle(string videoTitle);
@@ -14,7 +15,6 @@ namespace H42Skjatextar.DAL
         void RemoveVideoTitle(VideoTitle videoTitle);
         //void UpdateVideoTitle(string videoTitle);
         void Save();
-
         VideoTitle FindVideoTitleById(int? id);
         H42SkjatextarContext GetDbContext();
     }

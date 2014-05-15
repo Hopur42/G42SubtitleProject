@@ -13,5 +13,6 @@ namespace H42Skjatextar.Models
         public string imdbLink { get; set; }
         public string typeOfVideo { get; set; }
         public string genre { get; set; }
+
     }
 }
