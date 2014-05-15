@@ -42,9 +42,15 @@ namespace H42Skjatextar.DAL
         {
             db.SaveChanges();
         }
+        
         public H42SkjatextarContext GetDbContext()
         {
             return db;
         }
+        /*
+        protected override void IDisposable.Dispose()
+        {
+            db.Dispose();
+        }*/
     }
 }
