@@ -12,7 +12,6 @@ namespace H42Skjatextar.Models
         public int ID { get; set; }
         public string imdbLink { get; set; }
         public string typeOfVideo { get; set; }
-
-        public virtual SubTitleFiles SubTitleFiles { get; set; }
+        public string genre { get; set; }
     }
 }

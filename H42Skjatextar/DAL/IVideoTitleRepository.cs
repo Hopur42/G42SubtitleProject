@@ -16,6 +16,6 @@ namespace H42Skjatextar.DAL
         void Save();
 
         VideoTitle FindVideoTitleById(int? id);
-        public H42SkjatextarContext GetDbContext();
+        H42SkjatextarContext GetDbContext();
     }
 }
