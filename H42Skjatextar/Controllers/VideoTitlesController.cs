@@ -15,8 +15,6 @@ namespace H42Skjatextar.Controllers
 {
     public class VideoTitlesController : Controller
     {
-        H42SkjatextarContext db = new H42SkjatextarContext();
-
         private IVideoTitleRepository repo = null;
 
         // This constructor is called when the web app is being used by users.
@@ -155,16 +153,6 @@ namespace H42Skjatextar.Controllers
             repo.Save();
             return RedirectToAction("Index");
         }
-
-        /*
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }*/
         
     }
 }

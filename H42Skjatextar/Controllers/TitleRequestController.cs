@@ -15,10 +15,25 @@ namespace H42Skjatextar.Controllers
     {
         private H42SkjatextarContext db = new H42SkjatextarContext();
 
+        private ITitleRequestRepository repo = null;
+
+        // This constructor is called when the web app is being used by users.
+        public TitleRequestController()
+        {
+            repo = new TitleRequestRepository();
+        }
+        
+        // This constructor is called when we're testing the controller and we
+        // need to use a fake database.
+        public TitleRequestController(ITitleRequestRepository rep)
+        {
+            repo = rep;
+        }
+
         // GET: /TitleRequest/
         public ActionResult Index()
         {
-            return View(db.titleRequests.ToList());
+            return View(repo.GetAllRequest());
         }
 
         // GET: /TitleRequest/Details/5
@@ -28,12 +43,12 @@ namespace H42Skjatextar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TitleRequest titlerequest = db.titleRequests.Find(id);
-            if (titlerequest == null)
+            TitleRequest titleRequest = repo.FindTitleRequestById(id);
+            if (titleRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(titlerequest);
+            return View(titleRequest);
         }
 
         // GET: /TitleRequest/Create
@@ -47,16 +62,16 @@ namespace H42Skjatextar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,name,year,director,type,genre")] TitleRequest titlerequest)
+        public ActionResult Create([Bind(Include="Id,name,year,director,type,genre")] TitleRequest titleRequest)
         {
             if (ModelState.IsValid)
             {
-                db.titleRequests.Add(titlerequest);
-                db.SaveChanges();
+                repo.AddTitleRequest(titleRequest);
+                repo.Save();
                 return RedirectToAction("Index");
             }
 
-            return View(titlerequest);
+            return View(titleRequest);
         }
 
         // GET: /TitleRequest/Edit/5
@@ -66,12 +81,12 @@ namespace H42Skjatextar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TitleRequest titlerequest = db.titleRequests.Find(id);
-            if (titlerequest == null)
+            TitleRequest titleRequest = repo.FindTitleRequestById(id);
+            if (titleRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(titlerequest);
+            return View(titleRequest);
         }
 
         // POST: /TitleRequest/Edit/5
@@ -79,15 +94,15 @@ namespace H42Skjatextar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,name,year,director,type,genre")] TitleRequest titlerequest)
+        public ActionResult Edit([Bind(Include="Id,name,year,director,type,genre")] TitleRequest titleRequest)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(titlerequest).State = EntityState.Modified;
-                db.SaveChanges();
+                repo.GetDbContext().Entry(titleRequest).State = EntityState.Modified;
+                repo.Save();
                 return RedirectToAction("Index");
             }
-            return View(titlerequest);
+            return View(titleRequest);
         }
 
         // GET: /TitleRequest/Delete/5
@@ -97,12 +112,12 @@ namespace H42Skjatextar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TitleRequest titlerequest = db.titleRequests.Find(id);
-            if (titlerequest == null)
+            TitleRequest titleRequest = repo.FindTitleRequestById(id);
+            if (titleRequest == null)
             {
                 return HttpNotFound();
             }
-            return View(titlerequest);
+            return View(titleRequest);
         }
 
         // POST: /TitleRequest/Delete/5
@@ -110,19 +125,10 @@ namespace H42Skjatextar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TitleRequest titlerequest = db.titleRequests.Find(id);
-            db.titleRequests.Remove(titlerequest);
-            db.SaveChanges();
+            TitleRequest titleRequest = repo.FindTitleRequestById(id);
+            repo.RemoveTitleRequest(titleRequest);
+            repo.Save();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

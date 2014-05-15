@@ -47,10 +47,5 @@ namespace H42Skjatextar.DAL
         {
             return db;
         }
-        /*
-        protected override void IDisposable.Dispose()
-        {
-            db.Dispose();
-        }*/
     }
 }

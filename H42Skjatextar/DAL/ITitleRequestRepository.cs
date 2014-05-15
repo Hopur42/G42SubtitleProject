@@ -6,7 +6,7 @@ using System.Web;
 
 namespace H42Skjatextar.DAL
 {
-    public class ITitleRequestRepository
+    public interface ITitleRequestRepository
     {
         IEnumerable<TitleRequest> GetAllRequest();
         TitleRequest GetTitleRequest(string titleRequest);
