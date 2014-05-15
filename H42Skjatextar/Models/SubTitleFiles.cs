@@ -17,7 +17,5 @@ namespace H42Skjatextar.Models
         public string type { get; set; }
         public string genre { get; set; }
 
-        public virtual ICollection<VideoTitle> VideoTitles { get; set; }
-
     }
 }
