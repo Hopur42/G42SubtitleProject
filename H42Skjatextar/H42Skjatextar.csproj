@@ -161,9 +161,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TitleRequestController.cs" />
     <Compile Include="Controllers\VideoTitlesController.cs" />
     <Compile Include="DAL\H42SkjatextarContext.cs" />
+    <Compile Include="DAL\ITitleRequestRepository.cs" />
     <Compile Include="DAL\IVideoTitleRepository.cs" />
+    <Compile Include="DAL\TitleRequestRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,6 +241,11 @@
     <Content Include="Views\VideoTitles\Details.cshtml" />
     <Content Include="Views\VideoTitles\Edit.cshtml" />
     <Content Include="Views\VideoTitles\Index.cshtml" />
+    <Content Include="Views\TitleRequest\Create.cshtml" />
+    <Content Include="Views\TitleRequest\Delete.cshtml" />
+    <Content Include="Views\TitleRequest\Details.cshtml" />
+    <Content Include="Views\TitleRequest\Edit.cshtml" />
+    <Content Include="Views\TitleRequest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
