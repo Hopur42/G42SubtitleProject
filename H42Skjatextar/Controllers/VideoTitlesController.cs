@@ -85,7 +85,7 @@ namespace H42Skjatextar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,title")] VideoTitle videoTitle)
+        public ActionResult Create([Bind(Include = "ID,title,genre,imdbLink,typeOfVideo,userId")] VideoTitle videoTitle)
         {
             if (ModelState.IsValid)
             {

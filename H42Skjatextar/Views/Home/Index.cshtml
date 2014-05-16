@@ -1,11 +1,18 @@
 ﻿@model H42Skjatextar.Models.VideoTitle
-
+ 
 @{
     ViewBag.Title = "Home Page";
 }
 <div class="form-group" align="center">
-    @Html.ActionLink("Files", "Index", "VideoTitles");
-    @Html.ActionLink("Request", "Index", "TitleRequest");
+   <!-- @Html.ActionLink("Files", "Index", "VideoTitles")
+    @Html.ActionLink("Request", "Index", "TitleRequest") -->
+
+
+    <a href="@Url.Action("Index", "VideoTitles" )" class="frontpagebutton">Translations</a>
+    <a href="@Url.Action("Index", "TitleRequest" )" class="frontpagebutton">Requests</a>
+
+
+
     <div class="col-md-offset-2 col-md-10">
          @Html.TextBoxFor(model => model.title)
          <input type="submit" value="Search" class="btn btn-default" />
