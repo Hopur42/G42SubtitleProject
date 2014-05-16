@@ -1,13 +1,13 @@
 ﻿@model H42Skjatextar.Models.VideoTitle
-
-@{
+@if(User.Identity.Name  != ""){
+{
     ViewBag.Title = "Edit";
 }
 
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
@@ -64,4 +64,13 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}
+
+}
+
+@if(User.Identity.Name == "")
+{
+<div style="margin-top:20px">
+    <p> Oops, you're not supposed to be here!</p>
+</div>
 }

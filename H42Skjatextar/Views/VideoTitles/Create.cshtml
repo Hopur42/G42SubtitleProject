@@ -4,10 +4,11 @@
     ViewBag.Title = "Create";
 }
 
+@if(User.Identity.Name != "") {
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
@@ -74,4 +75,13 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}
+
+}
+
+@if(User.Identity.Name == "") 
+{
+<div style="margin-top:20px">
+    <p> Oops, you're not supposed to be here!</p>
+</div>
 }
