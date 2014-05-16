@@ -16,10 +16,12 @@
         </th>
     
         <th>
-            @Html.DisplayNameFor(model => model.title)
+            @Html.DisplayNameFor(model => model.genre)
         </th>
 
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeOfVideo)
+        </th>
   
     </tr>
 
@@ -34,8 +36,15 @@
         </td>
 
         <td>
-            @Html.ActionLink("Download", "Index", new { id=item.ID })
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.DisplayFor(modelItem => item.typeOfVideo)
+        </td>
+
+        <td>
+            @Html.ActionLink("Download", "Index", new { id=item.ID }) | <!-- ÞESSI LINKUR ER EKKI COOL -->
+            @if(User.Identity.Name != "")
+            {
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID })  <span>|</span>
+            }
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

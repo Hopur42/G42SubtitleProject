@@ -16,7 +16,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
-
+<!--                                            TITLE                                                   -->
         <div class="form-group">
             @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -24,6 +24,31 @@
                 @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
             </div>
         </div>
+<!--                                            GENRE                                                   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.genre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.genre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.genre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+<!--                                            TYPEOFVIDEO                                                   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.typeOfVideo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.typeOfVideo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.typeOfVideo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+<!--                                            TYPEOFVIDEO                                                   -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.imdbLink, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.imdbLink, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imdbLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
