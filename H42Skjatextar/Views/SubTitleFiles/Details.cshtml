@@ -1,0 +1,98 @@
+﻿@model H42Skjatextar.Models.SubTitleFiles
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubTitleFiles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fileUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fileUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.videoTitleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.videoTitleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fileTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fileTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titleOfMovie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titleOfMovie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.theFileInString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.theFileInString)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

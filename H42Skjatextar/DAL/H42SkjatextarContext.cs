@@ -16,9 +16,8 @@ namespace H42Skjatextar.DAL
         }
 
         public DbSet<VideoTitle> videoTitles { get; set; }
-        public DbSet<SubTitleFiles> subTitleFiles { get; set; }
         public DbSet<TitleRequest> titleRequests { get; set; }
-        //public DbSet<User> users { get; set; }
+        public DbSet<SubTitleFiles> subTitleFiles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

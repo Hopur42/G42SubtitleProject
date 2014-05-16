@@ -9,21 +9,16 @@ namespace H42Skjatextar.ViewModel
 {
     public class SubTitleFilesViewModel
     {
-        [FileSize(1000)]
-        [FileTypes("srt")]
-        public HttpPostedFileBase File { get; set; }
+        [key]
+        public int id { get; set; }
 
-        [Required(ErrorMessage = "required")]
-        public string titleOfMovie { get; set; }
+        public int fileUserId { get; set; }
 
         [Required(ErrorMessage = "required")]
         public string fileTitle { get; set; }
 
-        [key]
-        public int fileId { get; set; }
-        
-       
-        public int fileUserId { get; set; }
+        [Required(ErrorMessage = "required")]
+        public string titleOfMovie { get; set; }
 
         [Required(ErrorMessage = "required")]
         public string language { get; set; }
@@ -38,7 +33,10 @@ namespace H42Skjatextar.ViewModel
 
         public string genre { get; set; }
 
-        public virtual ICollection<SubTitleFiles> SubTiteFile { get; set; }
+        [FileTypes("srt")]
+        public HttpPostedFileBase File { get; set; }
+
+        public string theFileInString { get; set; }
 
         internal void saveAs(string path)
         {

@@ -13,8 +13,6 @@ namespace H42Skjatextar.Controllers
 {
     public class TitleRequestController : Controller
     {
-        private H42SkjatextarContext db = new H42SkjatextarContext();
-
         private ITitleRequestRepository repo = null;
 
         // This constructor is called when the web app is being used by users.
