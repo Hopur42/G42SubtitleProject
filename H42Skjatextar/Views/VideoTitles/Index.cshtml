@@ -6,11 +6,9 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
-    <tr>
+    <tr> <!--
         <th>
             @Html.DisplayNameFor(model => model.title)
         </th>
@@ -23,10 +21,29 @@
             @Html.DisplayNameFor(model => model.typeOfVideo)
         </th>
   
+        <th>
+        </th> -->
+
+        <th>
+            Title
+        </th>
+    
+        <th>
+            Genre
+        </th>
+
+        <th>
+            Type
+        </th>
+  
+        <th>
+        </th>
+
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+
         <td>
             @Html.DisplayFor(modelItem => item.title)
         </td>
@@ -45,8 +62,13 @@
             {
                 @Html.ActionLink("Edit", "Edit", new { id=item.ID })  <span>|</span>
             }
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) 
+
+            @if(User.Identity.Name != "")
+            {
+            <span>|</span>
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            }
         </td>
     </tr>
 }
