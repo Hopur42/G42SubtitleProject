@@ -83,7 +83,7 @@ namespace H42Skjatextar.Controllers
 
             string result = System.Text.Encoding.UTF8.GetString(binData);
 
-            subTitleFileViewModel.theFileInString = result;
+            subTitleFile.theFileInString = result;
 
             if (ModelState.IsValid)
             {
