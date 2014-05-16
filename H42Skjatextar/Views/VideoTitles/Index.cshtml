@@ -43,7 +43,8 @@
 }
 
 </table>
-
+@if(User.IsInRole("LoggedIn")) {
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
