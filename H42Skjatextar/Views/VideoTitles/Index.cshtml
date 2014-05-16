@@ -57,7 +57,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Download", "Index", new { id=item.ID }) | <!-- ÞESSI LINKUR ER EKKI COOL -->
+            
+            
+
             @if(User.Identity.Name != "")
             {
                 @Html.ActionLink("Edit", "Edit", new { id=item.ID })  <span>|</span>
